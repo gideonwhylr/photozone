@@ -1,0 +1,31 @@
+<div><%= image_tag(@photo.file_name) %> </div>
+
+<div class="comment">
+
+	<% if session[:user] then %>
+
+		<% @comment.errors.full_messages.each do |msg| %>
+			<div class="notice"><%= msg %></div>
+		<% end %>
+
+		<%= form_for(@comment, method: :post, url: {action: :create, id: @photo.id}) do |form| %>
+		 	<table class="form">
+		 	<tr>
+				<td><%= form.label(:comment, "Comment:")%></td>
+		 		<td><%= form.text_area(:comment, size: "50x5") %></td>
+		 		<td><%= form.submit "Post comment" %></td>
+		 	</tr>
+		 	</table>
+		<% end %>
+
+	<% else %>
+
+		You must be logged in to post a comment
+		<%= form_tag("/users/login", method: "post") do %>
+  		<%= submit_tag("Login") %>
+  		<% end %>
+
+  	<% end %>
+
+
+</div>

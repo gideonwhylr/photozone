@@ -1,0 +1,65 @@
+
+<% content_for :title, "#{@user.first_name} #{@user.last_name}'s photos" %>
+<%= javascript_include_tag "tagger.js" %>
+
+<% @tag.errors.full_messages.each do |msg| %>
+	<div class="notice"><%= msg %></div>
+<% end %>
+
+<table>
+	<tr><td> <%= link_to("Upload New Photo", action: :new) %> </td></tr>
+	<% for pic in @photos %>
+			<tr><td>
+					<div name=#<%=pic.id.to_s()%> id = <%=pic.id.to_s() + "wrapper" %>>
+						<%= image_tag("#{pic.file_name}") %>
+						<div id=<%=pic.id.to_s() + "feedback" %> ></div>
+						<% for tag in @tags[pic.id] %>
+							<div style="
+								width:<%=tag.width%>px;
+								height:<%=tag.height%>px;
+								left:<%=tag.x_offset%>px;
+								top:<%=tag.y_offset%>px;
+								border:1px solid black;
+								position: absolute;
+								color: #FFEB99;
+								font-size: 16px;"
+								onmouseover = "this.innerHTML = '<%=tag.tagged_usr%>'"
+								onmouseout = "this.innerHTML = ''"></div>
+						<%end%>
+
+
+
+						<script type="text/javascript">
+						//<![CDATA[
+							new Tagger("<%=pic.id.to_s() + 'wrapper' %>", "<%=pic.id.to_s() + 'selection'%>", "<%=pic.id.to_s() + 'x_offset' %>", "<%=pic.id.to_s() + 'y_offset' %>", "<%=pic.id.to_s() + 'width' %>", "<%=pic.id.to_s() + 'height' %>", "<%=pic.id.to_s()%>", "<%=pic.id.to_s() + 'form' %>");
+						//]]>
+						</script>
+					</div>
+
+					<% user_id = params[:id] %>
+					<div id=<%=pic.id.to_s() + "tagee_form" %>>
+					<%= form_for(@tag, method: :post, url: {action: :create_tag, id: @user.id}, :html => {:id => "#{pic.id}form"}) do |form| %>
+						<table id="tagger_table">
+						<tr>
+							<td><%= form.select(:tagged_usr, @tagees.map {|p| p.first_name + " " + p.last_name}) %></td>
+
+							<td><%= form.hidden_field(:x_offset, :id => "#{pic.id}x_offset" ) %></td>
+							<td><%= form.hidden_field(:y_offset, :id => "#{pic.id}y_offset") %></td>
+							<td><%= form.hidden_field(:width, :id => "#{pic.id}width") %></td>
+							<td><%= form.hidden_field(:height, :id => "#{pic.id}height") %></td>
+							<td><%= form.hidden_field(:photo_id, :value => "#{pic.id}") %></td>
+							<td><%= form.submit "Tag User" %></td>
+						</tr>
+						</table>
+					<% end %>
+					</div>
+
+
+					<div class="date_time"> Created on: <%= pic.date_time %></div>
+		 		<div><%= render partial: "shared/comments", locals: {comments: @comments[pic.id]} %></div>
+		 		<div class="comment"> 
+		 			<%= link_to("Add New Comment", controller: :comments, action: :new, id: pic.id) %>
+  				</div>
+		 	</td></tr>
+	 <% end %>
+</table>

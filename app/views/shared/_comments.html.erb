@@ -1,0 +1,11 @@
+	<div class="comment_header"> Comments: </div>
+	<% for post in comments %>
+		<div class="comment">
+			<% user = User.find_by(id: "#{post.user_id}") %>
+
+			<%= link_to(user.first_name + " " + user.last_name, controller: :photos, action: :index, id: user.id) %>
+
+			(<%= post.date_time %>)
+			<%= post.comment %> 
+		</div>
+	<% end %>

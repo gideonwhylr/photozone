@@ -1,0 +1,5 @@
+The parts that are resusable are the functions "dynamic_search / xhrHandler" in views/users/index.html.erb and the function "search" in controllers/users_controller.
+
+The dynamic_search function takes in the search query and a 'result div' where the results of the search are to be displayed. For the actual display process, the function calls another function (display_results) - this is meant to be changed to fit the different need cases of each implimentation. That is, it can be changed to display different results.
+
+The search function access the search query from the params[:q]. For the specific searching that needs to happen, it calls the "photo_search" function in the Photos model, which returns the needed results in an array. This function (photo_search) is intended to be changed depending on the use case.

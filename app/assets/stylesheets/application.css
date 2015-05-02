@@ -1,0 +1,145 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.bckgrnd {
+	background-color: #90EE90;
+	border: 3px solid black;
+	height: 1000px;
+}
+
+ .header {
+ 	background-color: rgba(255,255,255,1.0);
+ 	border: 3px solid black;
+ 	width: 80%;
+ 	height: 40px;
+ 	margin-top: 20px;
+ 	margin-left: auto;
+ 	margin-right: auto;
+ 	text-align: center;
+ 	font-size: 24pt;
+ 	font-family: "Arial", Verdana,Sans-serif;
+ }
+
+ .states {
+ 	font-family: "Arial", Verdana, Sans-serif;
+ 	margin-left: auto;
+ 	margin-right: auto;
+ 	margin-bottom: 30px;
+ 	width: 80%;
+ 	height: 80%;
+ 	background-color: white;
+ 	margin-top: 20px;
+ 	border: 3px solid black;
+ }
+
+ table{
+ 	margin-left: auto;
+ 	margin-right: auto;
+ 	margin-top: 30px;
+ 	background-color: #E6E6FA;
+ 	border: 2px solid black;
+ 	font-size: 18pt;
+ 	margin-bottom: 30px;
+ 	border-radius: 20px;
+ 	max-width: 80%
+
+ }
+
+ td {
+ 	border: 3px solid #9DAFC2;
+ 	border-radius: 25px;
+ }
+
+ .date_time{
+ 	margin-left: 10px;
+ 	font-size: 12pt;
+ }
+
+ .comment{
+ 	padding: 3px;
+ 	font-size: 14pt;
+ 	margin-left: 20px;
+ 	margin-top: 5px;
+ 	margin-right: 10px;
+ 	margin-bottom: 5px;
+ 	background-color: #9DAFC2;
+ }
+
+ .comment_header{
+ 	margin: 2px;
+ 	margin-left: 10px;
+ }
+
+ .home {
+
+ }
+
+img{
+	border: 2px solid #9DAFC2;
+	margin-left: 10px;
+	margin-top: 10px;
+	max-width: 80%;
+}
+
+.login{
+	margin: 10px;
+	padding: 10px;
+	border: 2px solid #9DAFC2;
+	text-align: center;
+}
+
+.login_banner {
+	background-color: #00005C;
+}
+
+.login_table{
+	color: white;
+ 	background-color: #00005C;
+ 	border: 2px solid black;
+ 	margin: 2px;
+ 	font-size: 12pt;
+}
+
+table.login_table td{
+	border: 0px;
+}
+
+
+.notice {
+	background-color: #FF9999;
+	width: 160px;
+	border: 2px solid #FF0000;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	padding: 2px;
+}
+
+.hidden_tag_form {
+}
+
+#tagger_table{
+	margin-left: 10px;
+	border: none;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#tagger_table td{
+	border: none;
+}
+

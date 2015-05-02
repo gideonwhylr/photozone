@@ -1,0 +1,58 @@
+<% content_for :title, "Project 4: User Index" %>
+
+<script>
+function dynamic_search(input, result_div_id){
+	xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = xhrHandler;
+	var search_url = "/users/search/?q="+input;
+	xhr.open("GET", search_url);
+	xhr.send();
+	var result_div = document.getElementById(result_div_id);
+
+
+function xhrHandler() {
+	var result_div = document.getElementById(result_div_id)
+	while (result_div.hasChildNodes()) {   
+   		result_div.removeChild(result_div.firstChild);
+	}
+	if (this.readyState != 4) {
+    	return;
+  	}
+  	if (this.status != 200) {
+    	return;
+  	}
+
+  	var result = JSON.parse(this.responseText);
+    display_results(result, result_div);
+}
+}
+
+function display_results(result, result_div) {
+
+  for (var i=0; i<result.length; i++) {
+      var obj = result[i];
+      var link_addition = document.createElement("a");
+      link_addition.href = "/photos/index/"+obj.user_id;
+      var img_addition = document.createElement("img");
+      img_addition.src = "/assets/" + obj.file_name;
+      img_addition.height = "100";
+      link_addition.appendChild(img_addition);
+      result_div.appendChild(link_addition);
+  } 
+}
+</script>
+
+<table>
+	<tr><td> Search Photos: <input type="text" name="txt" oninput="dynamic_search(this.value, 'result_div')"></td></tr>
+
+	<tr> <td id="result_div"></td></tr>
+
+	<tr><td>  Jump to a users photos: </td></tr>
+
+
+	<% for person in @users %>
+		 	<tr>
+		 		<td><%= link_to(person.first_name + " " + person.last_name, controller: :photos, action: :index, id: person.id) %></td>
+		 	</tr>
+	 <% end %>
+</table>

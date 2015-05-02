@@ -1,0 +1,20 @@
+<% content_for :title, "Project 5: Login" %>
+<div class="login">
+
+	<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  	<% end %>
+
+	<%= form_tag("/users/post_login", method: "post") do %>
+	<table>
+  		<tr><td><%= label_tag(:username, "Username:") %></td>
+ 		<td><%= text_field_tag(:username) %></td>
+ 		<tr><td><%= label_tag(:password, "Password:") %></td>
+ 		<td><%= text_field_tag(:password) %></td>
+  		<tr><td><%= submit_tag("Login") %></td></tr>
+  	</table>
+	<% end %>
+
+	<div class="comment"> <%= link_to("Register New User", action: :new) %> </div>
+
+</div>

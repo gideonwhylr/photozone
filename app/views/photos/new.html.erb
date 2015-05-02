@@ -1,0 +1,22 @@
+<% if session[:user] %>
+
+	<%= form_for(@photo, method: :post, url: {action: :create, id: @user.id}) do |form| %>
+		<table class="form">
+		<tr>
+			<td><%= form.label(:photo, "New Photo:")%></td>
+			<td><%= form.file_field(:photo) %></td>
+			<td><%= form.submit "Upload Photo" %></td>
+		</tr>
+		</table>
+	<% end %>
+
+<% else %>
+
+	<div class="comment">
+		You must be logged in to upload a photo
+		<%= form_tag("/users/login", method: "post") do %>
+	  	<%= submit_tag("Login") %>
+	  	<% end %>
+	</div>
+
+<% end %>
