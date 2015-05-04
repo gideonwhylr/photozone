@@ -26,6 +26,21 @@ body {
 	
 }
 
+.name_navigator {
+	float: left;
+	top: 5;
+  	position: fixed;
+  	padding-top: 0px;
+  	margin-top: 0px;
+  	height: 300px;
+  	background-color: #66E066;
+}
+
+.photo_content {
+	margin-left: 210px;
+	margin-top: 70px;
+}
+
 
 h1 { 
 	
@@ -46,6 +61,8 @@ h1 {
 }
 
  .header {
+ 	top: 10;
+  	position: fixed;
  	background-color: rgba(255,255,255,1.0);
  	border: 3px solid black;
  	width: 80%;
@@ -60,37 +77,49 @@ h1 {
 
  .states {
  	font-family: "Arial", Verdana, Sans-serif;
- 	margin-left: auto;
+ 	margin-left: 300px;
  	margin-right: auto;
  	margin-bottom: 30px;
  	width: 80%;
  	height: 80%;
  	background-color: white;
  	margin-top: 20px;
- 	border: 3px solid black;
  }
 
  table{
+ 	border-collapse: collapse;
  	margin-left: auto;
  	margin-right: auto;
- 	margin-top: 30px;
- 	background-color: #E6E6FA;
- 	border: 2px solid black;
  	font-size: 18pt;
- 	margin-bottom: 30px;
- 	border-radius: 20px;
- 	max-width: 80%
+ 	max-width: 80%;
 
+
+ }
+
+ .content_row {
+	background-color: rgba(255, 255, 255, 0.7); 
+ }
+
+ .transparent {
+ 	background-color: transparent;
+ 	height: 20px;
  }
 
  td {
- 	border: 3px solid #9DAFC2;
- 	border-radius: 25px;
  }
 
- .date_time{
- 	margin-left: 10px;
- 	font-size: 12pt;
+ tr {
+ }
+
+ .photo_box{
+ 	width: 50%;
+ 	margin-right: 0px;
+ }
+
+ .comment_box {
+ 	padding-top: 0px;
+ 	margin-top: 0px;
+ 	vertical-align: top;
  }
 
  .comment{
@@ -104,8 +133,14 @@ h1 {
  }
 
  .comment_header{
+ 	float: top;
  	margin: 2px;
  	margin-left: 10px;
+ }
+
+  .date_time{
+ 	margin-left: 10px;
+ 	font-size: 12pt;
  }
 
  .home {
@@ -128,15 +163,20 @@ img{
 
 .login_banner {
 	background-color: #00005C;
+
 }
 
 .login_table{
 	color: white;
  	background-color: #00005C;
+ 	width: 100%;
  	border: 0px solid black;
  	margin: 2px;
  	font-size: 12pt;
+ 	top: 0;
+  	position: fixed;
 }
+
 
 table.login_table td{
 	border: 0px;
@@ -160,7 +200,7 @@ table.login_table td{
 #tagger_table{
 	margin-left: 10px;
 	border: none;
-	margin-top: 5px;
+	margin-top: 0px;
 	margin-bottom: 5px;
 }
 

@@ -4,6 +4,8 @@ class PhotosController < ApplicationController
 		@user = User.find_by_id(params[:id])
 		@photos = Photo.where("user_id == #{params[:id]}")
 
+		@users = User.all
+
 		@tag = Tag.new
 		@tagees = User.all
 		@tags = Hash.new
