@@ -40,30 +40,55 @@ function display_results(result, result_div) {
       result_div.appendChild(link_addition);
   } 
 }
+
+
 </script>
 
 
 <div class = "title"> 
 	<h1> photo sharing zone </h1>
-		
+	
+
 
 </div>
 
-<!--
-<table>
-	<tr><td> Search Photos: <input type="text" name="txt" oninput="dynamic_search(this.value, 'result_div')"></td></tr>
+<div class = "search_box">
+	<ul>
+		<li id = "search_tag"> Search Photos: <input type="text" name="txt" oninput="dynamic_search(this.value, 'result_div')"></li>
 
-	<tr> <td id="result_div"></td></tr>
+		<li id="result_div"></li>
 
-	<tr><td>  Jump to a users photos: </td></tr>
+	</ul>
+</div>
+
+<div class = "user_nav">
+	<ul>
+		<li id ="nav_tag">  Jump to a users photos: </li>
+
+		
+			
+		<% for person in @users %>
+	
+			 		
+				 		<li class = "drop_down">
+				 			<%=link_to(person.first_name + " " + person.last_name, controller: :photos, action: :index, id: person.id)%>
+				 			
+				 		</li>
+				 	
+
+			 			 		
+			 		
+		 <% end %>
+			
+
+		
+	</table>
+
+</div>
 
 
-	<% for person in @users %>
-		 	<tr>
-		 		<td><%= link_to(person.first_name + " " + person.last_name, controller: :photos, action: :index, id: person.id) %></td>
-		 	</tr>
-	 <% end %>
-</table>
 
--->
+
+
+
 
