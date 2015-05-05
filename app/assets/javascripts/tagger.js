@@ -23,7 +23,7 @@ Tagger = function(target_id, selection_id, x_offset_id, y_offset_id, width_id, h
 	tagger.feedback.style.width = 0;
 	tagger.feedback.style.height = 0;
 	tagger.feedback.style.position = "absolute";
-	tagger.feedback.style.border = "1px solid black";
+	tagger.feedback.style.border = "2px solid yellow";
 	tagger.feedback.style.backgroundColor = "transparent";
 
 	//add event listeners

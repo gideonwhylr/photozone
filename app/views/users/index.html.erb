@@ -39,14 +39,38 @@ function display_results(result, result_div) {
       link_addition.appendChild(img_addition);
       result_div.appendChild(link_addition);
   } 
+
+
+
+
+
 }
+
+
+function show_nav() {
+	//console.log("test");
+	var nav_box = document.getElementById("user_list")
+	nav_box.style.visibility = "visible"
+	//nav_box.onmouseover = function(evt) {
+	//	console.log("hello");
+	//	nav_box.style.visibility = "hidden"
+	//	}
+}
+
+function hide_nav() {
+	var nav_box = document.getElementById("user_list")
+	nav_box.style.visibility = "hidden"
+
+
+}
+
 
 
 </script>
 
 
 <div class = "title"> 
-	<h1> photo sharing zone </h1>
+	<h1> doge hangout zone </h1>
 	
 
 
@@ -54,33 +78,35 @@ function display_results(result, result_div) {
 
 <div class = "search_box">
 	<ul>
-		<li id = "search_tag"> Search Photos: <input type="text" name="txt" oninput="dynamic_search(this.value, 'result_div')"></li>
+		<li id = "search_tag"> search photos: <input type="text" name="txt" oninput="dynamic_search(this.value, 'result_div')"></li>
 
 		<li id="result_div"></li>
 
 	</ul>
 </div>
 
-<div class = "user_nav">
+<div class = "user_nav" onmouseover ="show_nav()" onmouseout="hide_nav()">
 	<ul>
-		<li id ="nav_tag">  Jump to a users photos: </li>
+		<li id ="nav_tag">  browse users </li>
 
 		
-			
-		<% for person in @users %>
-	
-			 		
-				 		<li class = "drop_down">
-				 			<%=link_to(person.first_name + " " + person.last_name, controller: :photos, action: :index, id: person.id)%>
-				 			
-				 		</li>
-				 	
+		<div id = "user_list" >	
 
-			 			 		
-			 		
-		 <% end %>
-			
 
+			<% for person in @users %>
+		
+				 		
+					 		<li class = "drop_down">
+					 			<%=link_to(person.first_name + " " + person.last_name, controller: :photos, action: :index, id: person.id)%>
+					 			
+					 		</li>
+					 	
+
+				 			 		
+				 		
+			 <% end %>
+			
+		 </div>
 		
 	</table>
 
