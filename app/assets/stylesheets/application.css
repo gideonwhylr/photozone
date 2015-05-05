@@ -161,6 +161,7 @@ a {
  }
 
  .content_row {
+ 	margin-top: 40px;
 	background-color: rgba(255, 255, 255, 0.7); 
  }
 
@@ -216,11 +217,15 @@ img{
 }
 
 .login{
-	margin: 10px;
+	margin-top: 120px;
 	padding: 10px;
 	border: 0px solid #9DAFC2;
 	text-align: center;
-	width: 100%;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+.register-usr {
+	font-size: 10pt;
 }
 
 .login_banner {

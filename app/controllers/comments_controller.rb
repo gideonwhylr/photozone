@@ -13,7 +13,8 @@ class CommentsController < ApplicationController
 		@comment.date_time = DateTime.now
 		@comment.comment = params[:comment][:comment]
 		if @comment.save then
- 			redirect_to(:controller => :photos, :action => :index, :id => user.id)
+			redirect_id = Photo.find_by_id(params[:id]).user_id
+ 			redirect_to(:controller => :photos, :action => :index, :id => redirect_id)
  		else
  			#need to get the photo in this function so we can render it
  			@photo = Photo.find_by_id(params[:id])

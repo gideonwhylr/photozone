@@ -11,10 +11,10 @@
  		<td><%= text_field_tag(:username) %></td>
  		<tr><td><%= label_tag(:password, "Password:") %></td>
  		<td><%= text_field_tag(:password) %></td>
-  		<tr><td><%= submit_tag("Login") %></td></tr>
+  		<tr><td><%= submit_tag("Login") %></td>
+  			<td class="register-usr"> <%= link_to("Register New User", action: :new) %> </td>
+  		</tr>
   	</table>
 	<% end %>
-
-	<div class="comment"> <%= link_to("Register New User", action: :new) %> </div>
 
 </div>
