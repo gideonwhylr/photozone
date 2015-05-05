@@ -6,10 +6,15 @@
 	<div class="notice"><%= msg %></div>
 <% end %>
 
-<table>
-	<tr><td> <%= link_to("Upload New Photo", action: :new) %> </td></tr>
+<table class="name_navigator">
+	<% for person in @users %>
+		<tr><td> <%= link_to "#{person.first_name} #{person.last_name}", controller: "photos", action: "index", id: "#{person.id}"%> </td></tr>
+	<% end %>
+</table>
+<table class="photo_content">
+
 	<% for pic in @photos %>
-			<tr><td>
+			<tr class="content_row"><td class="photo_box">
 					<div name=#<%=pic.id.to_s()%> id = <%=pic.id.to_s() + "wrapper" %>>
 						<%= image_tag("#{pic.file_name}") %>
 						<div id=<%=pic.id.to_s() + "feedback" %> ></div>
@@ -53,13 +58,15 @@
 						</table>
 					<% end %>
 					</div>
-
-
-					<div class="date_time"> Created on: <%= pic.date_time %></div>
+			</td>
+			<td class="comment_box">
+				<div class="comment_box">
 		 		<div><%= render partial: "shared/comments", locals: {comments: @comments[pic.id]} %></div>
 		 		<div class="comment"> 
-		 			<%= link_to("Add New Comment", controller: :comments, action: :new, id: pic.id) %>
-  				</div>
-		 	</td></tr>
+		 			<%= link_to("Add New Comment", controller: :comments, action: :new, id: pic.id) %> </div>
+		 		</div>
+		 	</td>
+		 </tr>
+		 <tr class="transparent"></tr>
 	 <% end %>
 </table>
