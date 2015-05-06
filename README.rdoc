@@ -1,29 +1,26 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This database-backed web application is based on an assignment completed for Stanford's CS142: Web Applications course. 
+coursewebsite: cs142.stanford.edu
 
-Note: I developed this on a mac (-Ethan).
+The project is a model photo sharing website with the following functionality: 
+- user profile and login, with allowance restrictions for non-users
+- password salting security 
+- photo upload, displayed by user profile 
+- comments on individual photos
+- photo tagging 
+- photo search -- photo database can be queried for any text that appears in comments of photos
 
-Things you may want to cover:
+The website is designed with an MVC framework. Users, photos, comments, and tags are all stored in separate Active Record databases within the model. The browser interacts with these databases(querying and adding data) via the controller, displaying results in the view pages. 
 
-* Ruby version
+Different features of the website are implemented with Javascript event-handlers and the DOM model for real-time interaction. 
 
-* System dependencies
+Photo search is implemented with AJAX requests for real-time database querying. 
 
-* Configuration
+To access site (via a mac computer), pull the repository from github. You might need to run “bundle update” in the repository. Type in the “rails server” command and wait for the server to initialize. You can access the website by going to http://localhost:3000/users/index on your web browser.
 
-* Database creation
+Languages used: Ruby on Rails, Javascript, HTML/CSS
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 
 Please feel free to use a different markup language if you do not plan to run
